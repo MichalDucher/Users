@@ -38,6 +38,3 @@ The Users Management System is a simple web application for managing users. It p
     ```bash
     mvn spring-boot:run
 
-
-#NOTE
-there are credentials to databse hosted on render that is not thtat impornant so they are exposed in application.properties

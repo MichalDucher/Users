@@ -31,17 +31,9 @@ The Users Management System is a simple web application for managing users. It p
 2. **Navigate to the project directory:**
     ```bash
     cd users
-3. **Prepare your environment:**
-
-   - Create a PostgreSQL database for the application.
-   - Create a .env file in the root directory of the project and configure it with your PostgreSQL database details. The .env file should look like this:
-   ```bash
-   DB_URL=jdbc:postgresql://your-database-url:5432/your-database-name
-   DB_USERNAME=your-database-username
-   DB_PASSWORD=your-database-password
-4. **Build the project:**
+3. **Build the project:**
     ```bash
     mvn clean install
-5. **Run the application:**
+4. **Run the application:**
     ```bash
     mvn spring-boot:run

@@ -33,8 +33,8 @@ The Users Management System is a simple web application for managing users. It p
     cd users
 3. **Build the project:**
     ```bash
-    mvn clean install
+    mvnw clean install
 4. **Run the application:**
     ```bash
-    mvn spring-boot:run
+    mvnw spring-boot:run
 

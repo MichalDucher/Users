@@ -49,6 +49,13 @@ A class annotated with `@ControllerAdvice` to handle exceptions globally. It con
 ### 3. UserNameAlreadyExists
 A custom exception thrown when the provided username is already taken while updating user or creating new one.
 
+## Tests
+
+### 1. Unit Tests
+Unit tests are used to test individual components of the application in isolation. The primary framework used for unit testing is JUnit 5.
+
+- **UserServiceTest**: Tests the business logic in `UserService`.
+- **UserControllerTest**: Tests the endpoints in `UserController` to ensure they correctly map to the service layer and return the expected responses.
 
 ## Installation
 1. **Clone the repository:**

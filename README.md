@@ -47,7 +47,7 @@ A custom exception thrown when a user is not found in the database. This excepti
 A class annotated with `@ControllerAdvice` to handle exceptions globally. It contains methods to handle different types of exceptions, including `UserNotFoundException`, and returns appropriate HTTP responses with error messages.
 
 ### 3. UserNameAlreadyExistsException
-A custom exception thrown when the provided username is already taken while updating user or creating new one.
+A custom exception thrown when the provided username is already taken when updating user or creating new one.
 
 ## Tests
 

@@ -24,6 +24,32 @@ The Users Management System is a simple web application for managing users. It p
 - **PUT** - `/users/{id}` - Update an existing user.
 - **DELETE** - `/users/{id}` - Delete a user by ID.
 
+## Classes
+
+### 1. User
+Represents the user entity with fields such as `id`, `userName`, `age`, `gender`
+
+### 2. UserRepository
+An interface that extends `JpaRepository` for CRUD operations on the `User` entity. It includes custom query methods like `existsByUserName`.
+
+### 3. UserService
+Provides business logic related to user management. It interacts with `UserRepository` to perform operations like retrieving, creating, updating, and deleting users.
+
+### 4. UserController
+Handles HTTP requests related to users. It maps the endpoints to the appropriate service methods and returns the results as HTTP responses.
+
+## Exception Handling
+
+### 1. UserNotFoundException
+A custom exception thrown when a user is not found in the database. This exception is typically used in service methods when an operation requires a user that does not exist.
+
+### 2. GlobalExceptionHandler
+A class annotated with `@ControllerAdvice` to handle exceptions globally. It contains methods to handle different types of exceptions, including `UserNotFoundException`, and returns appropriate HTTP responses with error messages.
+
+### 3. UserNameAlreadyExists
+A custom exception thrown when the provided username is already taken while updating user or creating new one.
+
+
 ## Installation
 1. **Clone the repository:**
    ```bash

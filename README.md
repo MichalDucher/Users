@@ -55,7 +55,72 @@ A custom exception thrown when the provided username is already taken while upda
 Unit tests are used to test individual components of the application in isolation. The primary framework used for unit testing is JUnit 5.
 
 - **UserServiceTest**: Tests the business logic in `UserService`.
+#### Test Methods
+
+- **getAllUsers()**
+  - Prepares mock data for a list of users.
+  - Mocks the `findAll` method of `UserRepository` to return the mock data.
+  - Calls `getAllUsers` on the `UserService`.
+  - Asserts that the returned list matches the mock data.
+
+- **getUserById_UserExists()**
+  - Prepares mock data for a user with a specific ID.
+  - Mocks the `findById` method of `UserRepository` to return the mock user.
+  - Calls `getUserById` on the `UserService`.
+  - Asserts that the returned user matches the mock data.
+
+- **getUserById_UserNotFound()**
+  - Mocks the `findById` method of `UserRepository` to return an empty `Optional`.
+  - Calls `getUserById` on the `UserService`.
+  - Asserts that a `UserNotFoundException` is thrown.
+
+- **createUser_UserNameAlreadyExists()**
+  - Prepares mock data for a user with a specific username.
+  - Mocks the `existsByUserName` method of `UserRepository` to return `true`.
+  - Calls `createUser` on the `UserService`.
+  - Asserts that an `Exception` is thrown due to the username already existing.
+
+- **createUser_Success()**
+  - Prepares mock data for a user and the expected saved user.
+  - Mocks the `existsByUserName` method of `UserRepository` to return `false`.
+  - Mocks the `save` method of `UserRepository` to return the saved user.
+  - Calls `createUser` on the `UserService`.
+  - Asserts that the returned user matches the saved user.
+
+- **updateUser_UserNotFound()**
+  - Mocks the `existsById` method of `UserRepository` to return `false`.
+  - Calls `updateUser` on the `UserService`.
+  - Asserts that a `UserNotFoundException` is thrown.
+
+- **updateUser_UserNameAlreadyExists()**
+  - Prepares mock data for a new user and a conflicting user.
+  - Mocks the `existsById`, `findByUserName`, and `existsByUserName` methods of `UserRepository` to simulate a username conflict.
+  - Calls `updateUser` on the `UserService`.
+  - Asserts that a `UsernameAlreadyExistsException` is thrown.
+
+- **updateUser_Success()**
+  - Prepares mock data for an existing user and an updated user.
+  - Mocks the `existsById`, `findById`, `findByUserName`, and `save` methods of `UserRepository` to simulate a successful update.
+  - Calls `updateUser` on the `UserService`.
+  - Asserts that the returned user matches the updated user.
+
+- **deleteUser_UserNotFound()**
+  - Mocks the `existsById` method of `UserRepository` to return `false`.
+  - Calls `deleteUser` on the `UserService`.
+  - Asserts that a `UserNotFoundException` is thrown.
+
+- **deleteUser_Success()**
+  - Mocks the `existsById` method of `UserRepository` to return `true`.
+  - Calls `deleteUser` on the `UserService`.
+  - Verifies that the `deleteById` method of `UserRepository` is called once.
+
 - **UserControllerTest**: Tests the endpoints in `UserController` to ensure they correctly map to the service layer and return the expected responses.
+#### Test Methods
+- **getAllUsers()**: Tests the retrieval of all users and verifies the response status and body.
+- **getUserById()**: Tests the retrieval of a user by ID and verifies the response status and body.
+- **createUser()**: Tests the creation of a new user and verifies the response status and body.
+- **updateUser()**: Tests the update of an existing user and verifies the response status and body.
+- **deleteUser()**: Tests the deletion of a user and verifies the response status.
 
 ## Installation
 1. **Clone the repository:**
